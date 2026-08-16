@@ -83,24 +83,14 @@ body{
     linear-gradient(90deg, rgba(6,45,55,0.82) 0%, rgba(6,45,55,0.55) 40%, rgba(11,58,71,0.30) 70%, rgba(11,58,71,0.50) 100%),
     /* subtle bottom vignette */
     linear-gradient(180deg, rgba(6,45,55,0.30) 0%, transparent 40%, rgba(6,45,55,0.45) 100%),
+    /* SERPL tanker photograph (label pre-cropped) — sized larger than viewport so it can pan */
+    url("./bg/tanker-spm.jpg") center center / auto 220% no-repeat,
     #0B3A47;
+  animation:bg-kenburns 60s ease-in-out infinite alternate;
 }
-
-/* Tanker photo pans horizontally via pseudo-element that is wider than the container */
-.login-shell::after{
-  content:"";
-  position:absolute;
-  top:0;bottom:0;
-  left:-18%;right:-18%;
-  z-index:-1;
-  background:url("./bg/tanker-spm.jpg") center center / cover no-repeat;
-  animation:tanker-drift 60s ease-in-out infinite alternate;
-  will-change:transform;
-}
-@keyframes tanker-drift{
-  0%   {transform:translateX(-10%) scale(1.02)}
-  50%  {transform:translateX(0)    scale(1.05)}
-  100% {transform:translateX(10%)  scale(1.02)}
+@keyframes bg-kenburns{
+  0%   {background-position: 0 0, 0 0, 20% center, 0 0}
+  100% {background-position: 0 0, 0 0, 80% center, 0 0}
 }
 @keyframes bg-kenburns{
   0%  {background-size:auto, 108% auto, auto}
